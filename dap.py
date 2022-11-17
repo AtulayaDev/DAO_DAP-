@@ -1,12 +1,15 @@
 import requests
 from bs4 import BeautifulSoup
+import datetime
 
 url="https://emrtds.nepalpassport.gov.np/iups-api/calendars/79/false"
 response=requests.get(url)
 
 api_content=response.text
 
-with open('api_dap.json','w') as f:
+
+today_date=datetime.datetime.now().isoformat()
+
+with open(f'dap_{today_date}.json','w') as f:
     f.write(api_content)
     
-doc=BeautifulSoup(api_content,'html.parser')
