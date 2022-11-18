@@ -12,4 +12,3 @@ today_date=datetime.datetime.now().isoformat()
 
 with open(f'dap_{today_date}.json','w') as f:
     f.write(api_content)
-    
